@@ -24,13 +24,4 @@ print ((filename), (output))
 pymol.cmd.quit()
 
 
-\end{lstlisting}
 
-\begin{lstlisting}[language=bash,breaklines,caption={center\_of\_mass.sh}(run it out of singularity)]
-#!/bin/bash
-
-mkdir COM
-for i in $(ls highest_XGB_pose)
-do
-        ~/pymol-2.5.4/run-pymol-2.5.4.bash python center_of_mass.py highest_XGB_pose/${i}/${i}_*.pdb
-done
