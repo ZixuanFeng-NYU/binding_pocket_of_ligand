@@ -1,5 +1,6 @@
 import pandas as pd
 import os
+import sys
 def COM_collection(COM_list):
     _id=[]
     X=[]
@@ -31,8 +32,13 @@ def COM_collection(COM_list):
             Y.append(parts[2])
             Z.append(parts[3])
     df=pd.DataFrame()
-    df['ligand_id']=_id
+    df['community_id']=_id
     df['X']=X
     df['Y']=Y
     df['Z']=Z
     return df
+
+if __name__=='__main__':
+    COM_list=sys.argv[1]
+    df=COM_collection(COM_list)
+    df.to_csv(sys.argv[2])
